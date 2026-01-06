@@ -8,7 +8,9 @@ venv/
 
 # Outputs
 logs/
-reports/
+reports/*
+!reports/examples/
+!reports/examples/*
 
 # OS junk
 .DS_Store
