@@ -57,7 +57,8 @@ def save_plot_time_vs_current(time_s, total_current_a, overcurrent_t, out_path: 
     plt.figure()
     plt.step(time_s, total_current_a, where="post")
     if overcurrent_t is not None:
-        plt.axvline(overcurrent_t)
+        plt.axvline(overcurrent_t, linestyle="--", color="red", linewidth=2, label="Overcurrent trigger")
+        plt.legend()
     plt.xlabel("Time (s)")
     plt.ylabel("Total Current (A)")
     plt.title("Total Current Draw vs Time")
@@ -71,7 +72,8 @@ def save_plot_time_vs_remaining_ah(time_s, remaining_ah, low_batt_t, out_path: P
     plt.figure()
     plt.plot(time_s, remaining_ah)
     if low_batt_t is not None:
-        plt.axvline(low_batt_t)
+        plt.axvline(low_batt_t, linestyle="--", color="red", linewidth=2, label="Low battery trigger")
+        plt.legend()
     plt.xlabel("Time (s)")
     plt.ylabel("Remaining Capacity (Ah)")
     plt.title("Remaining Battery Capacity vs Time")
