@@ -8,9 +8,15 @@ venv/
 
 # Outputs
 logs/
-reports/*
+
+# Generated artifacts
+reports/*.png
+reports/current_vs_time_*.png
+reports/remaining_ah_vs_time_*.png
+
+# Keep curated examples
 !reports/examples/
-!reports/examples/*
+!reports/examples/*.png
 
 # OS junk
 .DS_Store

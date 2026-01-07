@@ -19,3 +19,10 @@ to a ROS2-based embedded autonomy project.
 ```bash
 python3 src/power_sim_v0.py
 
+## Example Outputs
+
+**Total Current vs Time (with Safety Trigger)**  
+Dashed red line indicates first overcurrent detection during a high-load maneuver phase.
+
+![Current vs Time](reports/examples/current_vs_time_overcurrent.png)
+
