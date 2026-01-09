@@ -1,28 +1,49 @@
-# RoboSub Power & Load Simulator (Indirect Project)
+# Power System Simulator for Autonomous Robotics
 
-This repo contains a small power and battery-life simulator for an autonomous underwater robot (RoboSub-style).
-The goal is to build systems intuition (power draw, mission phases, safety margins) and later connect this thinking
-to a ROS2-based embedded autonomy project.
+This project simulates power consumption, battery drain, and safety conditions for an autonomous robotic system with multiple onboard loads (e.g., compute, sensors, and thrusters). It is designed to model realistic mission phases and provide telemetry and diagnostics useful for system integration and safety analysis.
 
-## What this sim does (v0)
-- Models a battery (voltage, capacity in Ah)
-- Models one or more loads with different mission states (idle / active)
-- Simulates battery drain over time based on current draw
-- Outputs remaining capacity and estimated runtime
+## What This Simulator Does (v0.4)
+- Models a battery with voltage and capacity (Ah)
+- Models multiple electrical loads (Jetson, sensors, thrusters)
+- Simulates mission phases with different current profiles (idle, transit, maneuver)
+- Logs telemetry at 1 Hz to CSV
+- Tracks remaining battery capacity over time
+- Implements safety checks:
+    - **Overcurrent detection**
+    - **Low battery capacity detection**
+- Generates plots for post-run analysis:
+    - Total current vs time (with safety trigger markers)
+    - Remaining battery capacity vs time
+
+## Example Output
+
+**Total Current vs Time with Safety Trigger**
+The dashed red line indicates the first detected overcurrent event during a high-load maneuver phase, demonstrating how safety thresholds can be monitored during autonomous operation.
+
+![Current vs Time](reports/examples/current_vs_time_overcurrent.png)
 
 ## Project Structure
-- `src/` – simulator code
-- `logs/` – generated CSV logs (ignored by git)
-- `reports/` – generated plots (ignored by git)
+.
+├── src/
+│   ├── power_sim_v0.py        # Initial battery drain simulation
+│   ├── power_sim_v0_1.py      # Multi-load modeling
+│   ├── power_sim_v0_2.py      # CSV logging
+│   ├── power_sim_v0_2_1.py    # 1 Hz telemetry logging
+│   └── power_sim_v0_4.py      # Safety checks and warning flags
+├── tools/
+│   └── plot_run.py            # Visualization and analysis tool
+├── logs/                      # Generated CSV logs (git-ignored)
+├── reports/
+│   └── examples/              # Curated example plots
+└── README.md
 
 ## How to run
 ```bash
 python3 src/power_sim_v0.py
 
-## Example Outputs
+```bash
+python3 tools/plot_run.py
 
-**Total Current vs Time (with Safety Trigger)**  
-Dashed red line indicates first overcurrent detection during a high-load maneuver phase.
-
-![Current vs Time](reports/examples/current_vs_time_overcurrent.png)
+## Motivation
+This simulator was built as a foundation for understanding and validating power system behavior in autonomous robots. Really, I wanted to upgrade my previous understanding of managing battery levels and usage by considering indivudual embdedded components as opposed to a computer system as a whole.
 
