@@ -8,15 +8,19 @@ This project simulates power consumption, battery drain, and safety conditions f
 - Simulates mission phases with different current profiles (idle, transit, maneuver)
 - Logs telemetry at 1 Hz to CSV
 - Tracks remaining battery capacity over time
+### Safety & Fault Handling
 - Implements safety checks:
     - **Overcurrent detection**
     - **Low battery capacity detection**
 - Triggers an automatic abort state when safety limits are exceeded
 - Derates propulsion loads during abort to preserve compute and sensing capability
 - Continues telemetry logging after faults for debugging and analysis
+
+### Visualization & Analysis
 - Generates plots for post-run analysis:
     - Total current vs time (with safety trigger markers)
     - Remaining battery capacity vs time
+- Enables visualization of system response to electrical faults and mission changes
 
 ## Example Output
 
