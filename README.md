@@ -31,7 +31,7 @@ logs/ - Generated CSV telemetry logs from simulation runs (git-ignored).
 
 reports/ - Generated plots and reports.
 
-    reports/examples/ - contains curated example outputs tracked in git.
+reports/examples/ - contains curated example outputs tracked in git.
 
 ## How to run
 ```bash
