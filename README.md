@@ -41,4 +41,6 @@ python3 tools/plot_run.py
 ```
 
 ## Motivation
-This simulator was built as a foundation for understanding and validating power system behavior in autonomous robots. Really, I wanted to upgrade my previous understanding of managing battery levels and usage by considering indivudual embdedded components as opposed to a computer system as a whole.
+This simulator was built as a foundation for understanding and validating power system behavior in autonomous robots. Really, I wanted to upgrade my previous understanding of managing battery levels and usage by considering indivudual embdedded components as opposed to a computer system as a whole. In v0.5, safety triggers initiate an automatic abort state that derates propulsion loads, mimicking how real robotic systems preserve compute and sensing capability during electrical faults.
+
+
