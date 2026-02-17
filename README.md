@@ -2,7 +2,7 @@
 
 This project simulates power consumption, battery drain, and safety conditions for an autonomous robotic system with multiple onboard loads (e.g., compute, sensors, and thrusters). It is designed to model realistic mission phases and provide telemetry and diagnostics useful for system integration and safety analysis.
 
-## What This Simulator Does (v0.4)
+## What This Simulator Does (v0.5)
 - Models a battery with voltage and capacity (Ah)
 - Models multiple electrical loads (Jetson, sensors, thrusters)
 - Simulates mission phases with different current profiles (idle, transit, maneuver)
@@ -11,6 +11,9 @@ This project simulates power consumption, battery drain, and safety conditions f
 - Implements safety checks:
     - **Overcurrent detection**
     - **Low battery capacity detection**
+- Triggers an automatic abort state when safety limits are exceeded
+- Derates propulsion loads during abort to preserve compute and sensing capability
+- Continues telemetry logging after faults for debugging and analysis
 - Generates plots for post-run analysis:
     - Total current vs time (with safety trigger markers)
     - Remaining battery capacity vs time
