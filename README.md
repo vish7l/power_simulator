@@ -23,27 +23,22 @@ The dashed red line indicates the first detected overcurrent event during a high
 ![Current vs Time](reports/examples/current_vs_time_overcurrent.png)
 
 ## Project Structure
-.
-├── src/
-│   ├── power_sim_v0.py        # Initial battery drain simulation
-│   ├── power_sim_v0_1.py      # Multi-load modeling
-│   ├── power_sim_v0_2.py      # CSV logging
-│   ├── power_sim_v0_2_1.py    # 1 Hz telemetry logging
-│   └── power_sim_v0_4.py      # Safety checks and warning flags
-├── tools/
-│   └── plot_run.py            # Visualization and analysis tool
-├── logs/                      # Generated CSV logs (git-ignored)
-├── reports/
-│   └── examples/              # Curated example plots
-└── README.md
+src/ - Contains the simulator source code, organized by version as functionality evolved from basic battery modeling to safety-aware telemetry logging.
+
+tools/ - Contains analysis and visualization scripts (e.g., plotting telemetry and marking safety events).
+
+logs/ - Generated CSV telemetry logs from simulation runs (git-ignored).
+
+reports/ - Generated plots and reports.
+
+    reports/examples/ - contains curated example outputs tracked in git.
 
 ## How to run
 ```bash
 python3 src/power_sim_v0.py
 
-```bash
 python3 tools/plot_run.py
+```
 
 ## Motivation
 This simulator was built as a foundation for understanding and validating power system behavior in autonomous robots. Really, I wanted to upgrade my previous understanding of managing battery levels and usage by considering indivudual embdedded components as opposed to a computer system as a whole.
-
